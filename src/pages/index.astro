@@ -1,37 +1,66 @@
 ---
 // Component Imports
-import Counter from '../components/Counter';
-
-const someProps = {
-	count: 0,
-};
+import "./../styles/global.css";
+import Header from "../components/Header";
+import Hero from "../components/Hero";
+import About from "../components/About";
+import Features from "../components/Features";
+import Services from "../components/Services";
+import FinanceSection from "../components/FinanceSection";
+import HowWeWork from "../components/HowWeWork";
+import Testimonial from "../components/Testimonial";
+import Contact from "../components/Contact";
+import Footer from "../components/Footer";
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/basics/astro-components/
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<style>
-			html,
-			body {
-				font-family: system-ui;
-				margin: 0;
-			}
-			body {
-				padding: 2rem;
-			}
-		</style>
-	</head>
-	<body>
-		<main>
-			<Counter {...someProps} client:visible>
-				<h1>Hello, React!</h1>
-			</Counter>
-		</main>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <Header client:visible />
+      <Hero client:visible />
+      <About client:visible />
+      <Features client:visible />
+      <Services client:visible />
+      <FinanceSection client:visible />
+      <HowWeWork client:visible />
+      <Testimonial client:visible />
+      <Contact client:visible />
+      <Footer client:visible />
+    </main>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+      var Tawk_API = Tawk_API || {},
+        Tawk_LoadStart = new Date();
+      (function () {
+        var s1 = document.createElement("script"),
+          s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = "https://embed.tawk.to/6899e59a7f808f192df13020/1j2cihpi5";
+        s1.charset = "UTF-8";
+        s1.setAttribute("crossorigin", "*");
+        s0.parentNode.insertBefore(s1, s0);
+      })();
+    </script>
+    <!--End of Tawk.to Script-->
+  </body>
 </html>
