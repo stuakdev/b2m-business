@@ -1,7 +1,14 @@
 import { motion } from "framer-motion";
 import { Mail, MapPin, PhoneCall } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export default function Contact() {
+  const [redirectURL, setRedirectURL] = useState("");
+
+  useEffect(() => {
+    setRedirectURL(`${window.location.origin}/#contact`);
+  }, []);
+
   return (
     <section id="contact" className="py-16 px-4 bg-white scroll-mt-10">
       <div className="max-w-7xl mx-auto">
@@ -27,7 +34,7 @@ export default function Contact() {
           <p className="text-lg text-gray-500 mt-2">Any question or remarks? Just write us a message!</p>
         </motion.div>
 
-        <div className="bg-white shadow-lg p-5 rounded-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-2">
+        <div className="bg-white shadow-lg md:p-5 rounded-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-2">
           <div className="bg-[#0C205B] text-white p-8 md:py-12 flex flex-col justify-between rounded-xl relative overflow-hidden">
             <motion.div
               initial={{
@@ -46,7 +53,7 @@ export default function Contact() {
                 once: true,
               }}
             >
-              <h3 className="text-3xl text-white font-semibold mb-3q">Contact Information</h3>
+              <h3 className="text-2xl md:text-4xl text-white font-semibold mb-3">Contact Information</h3>
               <p className="text-lg mb-8 text-[#C9C9C9]">Say something to start a journey</p>
 
               <div className="space-y-8 text-lg">
@@ -133,7 +140,7 @@ export default function Contact() {
               />
             </div>
 
-            <input type="hidden" name="redirect" value="http://localhost/#contact"></input>
+            <input type="hidden" name="redirect" value={redirectURL}></input>
 
             <div className="flex justify-center">
               <button

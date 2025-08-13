@@ -3,7 +3,7 @@ import { BrainCircuit, HeartHandshake, Notebook, ScanEye } from "lucide-react";
 
 export default function HowWeWork() {
   return (
-    <section className="bg-gradient-to-b from-[#FFDEA8] to-[#FAFAF4] pb-16 md:pt-24 px-4 scroll-mt-10">
+    <section className="bg-gradient-to-b from-[#FFDEA8] to-[#FAFAF4] py-16 md:pt-24 px-4 scroll-mt-10">
       <motion.div
         initial={{
           opacity: 0,
@@ -68,7 +68,7 @@ export default function HowWeWork() {
               translateY: 0,
               transition: {
                 duration: 0.5,
-                delay: 0.70,
+                delay: 0.60,
               },
             }}
             viewport={{
@@ -94,7 +94,7 @@ export default function HowWeWork() {
               translateY: 0,
               transition: {
                 duration: 0.5,
-                delay: 0.90,
+                delay: 0.70,
               },
             }}
             viewport={{
@@ -122,7 +122,7 @@ export default function HowWeWork() {
               translateY: 0,
               transition: {
                 duration: 0.5,
-                delay: 1.1,
+                delay: 0.8,
               },
             }}
             viewport={{
@@ -150,7 +150,7 @@ export default function HowWeWork() {
             translateY: 0,
             transition: {
               duration: 0.5,
-              delay: 1.3,
+              delay: 0.9,
             },
           }}
           viewport={{

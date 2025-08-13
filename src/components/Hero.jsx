@@ -33,7 +33,7 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-row items-center gap-4 justify-center lg:justify-start">
-            <motion.button
+            <motion.a
               initial={{
                 opacity: 0,
                 translateY: "100px",
@@ -49,11 +49,12 @@ export default function Hero() {
               viewport={{
                 once: true,
               }}
-              className="bg-[#02033B] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#1618b9] hover:scale-105 hover:cursor-pointer"
+              className="bg-[#02033B] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#090a5a] hover:scale-105 hover:cursor-pointer"
+              href="#contact"
             >
               Contact
-            </motion.button>
-            <motion.button
+            </motion.a>
+            <motion.a
               initial={{
                 opacity: 0,
                 translateY: "100px",
@@ -70,9 +71,12 @@ export default function Hero() {
                 once: true,
               }}
               className="border border-[#02033B] text-[#02033B] px-6 py-3 rounded-full font-semibold hover:bg-[#e8e8ff] hover:scale-105 hover:cursor-pointer"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://wa.me/+61414270092"
             >
               Whatsapp
-            </motion.button>
+            </motion.a>
           </div>
         </motion.div>
 

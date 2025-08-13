@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import cardImg1 from "../assets/card-img1.png";
 import cardImg2 from "../assets/card-img2.png";
 import cardImg3 from "../assets/card-img3.png";
@@ -15,6 +15,10 @@ import { cn } from "@/lib/utils";
 export default function Features() {
   const plugin = useRef(Autoplay({ delay: 4000, stopOnInteraction: false }));
   const [screenWidth, setScreenWidth] = useState();
+  const [clickedCardIndex, setClickedCardIndex] = useState({
+    cardClickedState: false,
+    index: null,
+  });
 
   useEffect(() => {
     const handleResize = () => {
@@ -32,36 +36,50 @@ export default function Features() {
     {
       title: "End-to-End Bookkeeping",
       icon: cardImg1.src,
+      details:
+        "Complete tracking and management of all your financial transactions from data entry to final reports, ensuring accuracy and compliance every step of the way.",
     },
     {
       title: "Bank Reconciliations",
       icon: cardImg2.src,
+      details:
+        "We match your bank statements with your financial records to ensure everything adds up accurately helping you catch errors, avoid fraud, and maintain clean books.",
     },
     {
       title: "Payroll Services",
       icon: cardImg3.src,
+      details:
+        "Timely and accurate payroll processing, including salary calculations, tax deductions, and payslip generation ensuring your team is paid correctly and on time.",
     },
     {
       title: "Financial reporting",
       icon: cardImg4.src,
+      details:
+        "Clear and detailed reports that give you insights into your business’s performance helping you make informed financial decisions with confidence.",
     },
     {
       title: "Debtor Management",
       icon: cardImg5.src,
+      details:
+        "Efficient tracking and follow-up of outstanding payments to improve cash flow and reduce overdue invoices keeping your business financially healthy.",
     },
     {
       title: "System Setup & Support",
       icon: cardImg6.src,
+      details:
+        "We help you choose and set up the right accounting software, and provide ongoing support to ensure smooth, efficient financial management from day one.",
     },
     {
       title: "BAS Lodgement",
       icon: cardImg7.src,
+      details:
+        "Accurate preparation and timely submission of your Business Activity Statements (BAS) to ensure GST and tax compliance with ATO regulations.",
     },
   ];
 
   return (
     <section id="whatwedo" className="bg-gradient-to-b from-[#FFFAF2] to-[#FFDEAA] scroll-mt-10">
-      <div className="max-w-[1800px] mx-auto px-6 py-16">
+      <div className="max-w-[1800px] mx-auto px-2 md:px-6 py-4 md:py-16">
         <motion.div
           initial={{
             opacity: 0,
@@ -100,52 +118,108 @@ export default function Features() {
           viewport={{
             once: true,
           }}
-          className="flex space-x-6 px-4"
+          className="flex space-x-6 md:px-4"
         >
           <Carousel plugins={[plugin.current]} className="w-full max-w-[1600px] mx-auto">
-            <CarouselContent className="-ml-1 flex">
+            <CarouselContent className="md:-ml-1 flex">
               {cards.map((item, index) => (
-                <CarouselItem key={index} className={cn(`${index === 0 ? "px-0" : "pl-4"} md:basis-1/2 xl:basis-1/3`)}>
+                <CarouselItem
+                  key={index}
+                  className={cn(`${index === 0 ? "px-0" : "md:pl-4"} md:basis-1/2 xl:basis-1/3`)}
+                >
                   <div className="p-1">
                     <div
-                      className={`card-${
-                        index + 1
-                      } min-w-[320px] h-[250px] rounded-3xl border border-[#000c3f] shadow-[0_5px_0_0_rgb(0,12,63)] p-8 md:p-8 py-12 flex justify-between`}
+                      className={`flex ${
+                        !clickedCardIndex.cardClickedState ||
+                        (clickedCardIndex.cardClickedState && clickedCardIndex.index !== index)
+                          ? `card-${index + 1} justify-between py-12`
+                          : clickedCardIndex.index !== index
+                          ? ""
+                          : index % 2 === 0
+                          ? "bg-white flex-col py-6"
+                          : "bg-[#191A23] flex-col py-6"
+                      } min-w-[320px] h-[250px] rounded-3xl border border-[#000c3f] shadow-[0_5px_0_0_rgb(0,12,63)] p-4`}
                     >
-                      <div className="flex flex-col justify-between gap-6">
+                      <div
+                        className={`flex ${
+                          !clickedCardIndex.cardClickedState ||
+                          (clickedCardIndex.cardClickedState && clickedCardIndex.index !== index)
+                            ? "flex-col"
+                            : "flex-row"
+                        } justify-between gap-6`}
+                      >
                         <div
-                          className={`card-title-${
-                            index + 1
-                          } w-11/12 font-space text-lg lg:text-xl xl:text-2xl font-semibold px-2 md:px-4 lg:px-6 py-2 rounded-md leading-8`}
+                          className={`${
+                            !clickedCardIndex.cardClickedState ||
+                            (clickedCardIndex.cardClickedState && clickedCardIndex.index !== index)
+                              ? `card-title-${index + 1} w-11/12`
+                              : index % 2 === 0
+                              ? "bg-black text-white"
+                              : "bg-[#ED8A01] text-white"
+                          } font-space text-lg lg:text-xl xl:text-2xl font-semibold px-2 md:px-4 lg:px-6 py-2 rounded-md leading-8`}
                         >
                           {item.title}
                         </div>
-                        <button
-                          className={`card-button-${
-                            index + 1
-                          } group flex items-center gap-2 text-lg font-medium hover:cursor-pointer hover:scale-105 transition`}
-                        >
-                          <div
-                            className={`card-icon-${
+                        {(!clickedCardIndex.cardClickedState ||
+                          (clickedCardIndex.cardClickedState && clickedCardIndex.index !== index)) && (
+                          <button
+                            className={`card-button-${
                               index + 1
-                            } w-8 h-8 border rounded-full flex items-center justify-center transition-transform duration-300 group-hover:-rotate-40`}
+                            } group flex items-center gap-2 text-lg font-medium hover:cursor-pointer hover:scale-105 transition`}
+                            onClick={() => {
+                              setClickedCardIndex({
+                                cardClickedState: true,
+                                index: index,
+                              });
+                            }}
                           >
-                            <ArrowRight size={24} />
-                          </div>
-                          Learn more
-                        </button>
+                            <div
+                              className={`card-icon-${
+                                index + 1
+                              } w-8 h-8 border rounded-full flex items-center justify-center transition-transform duration-300 group-hover:-rotate-40`}
+                            >
+                              <ArrowRight size={24} />
+                            </div>
+                            Learn more
+                          </button>
+                        )}
+                        {clickedCardIndex.cardClickedState && clickedCardIndex.index === index && (
+                          <button
+                            className={`flex items-center gap-2 text-lg font-medium hover:cursor-pointer hover:scale-105 transition`}
+                            onClick={() => {
+                              setClickedCardIndex({
+                                cardClickedState: false,
+                                index: null,
+                              });
+                            }}
+                          >
+                            <div
+                              className={`w-8 h-8 border ${
+                                index % 2 === 0 ? "border-black" : "bg-black text-[#ED8A01] border-[#ED8A01]"
+                              } rounded-full flex items-center justify-center transition-transform duration-300`}
+                            >
+                              <ArrowLeft size={24} />
+                            </div>
+                          </button>
+                        )}
                       </div>
+                      {clickedCardIndex.cardClickedState && clickedCardIndex.index === index && (
+                        <p className={`${index % 2 === 0 ? "text-black" : "text-white"} mt-4`}>{item.details}</p>
+                      )}
 
-                      <div className="relative flex items-center gap-2 w-32 h-32 self-center">
-                        <img src={item.icon} alt="Icon img" />
-                      </div>
+                      {(!clickedCardIndex.cardClickedState ||
+                        (clickedCardIndex.cardClickedState && clickedCardIndex.index !== index)) && (
+                        <div className="relative flex items-center gap-2 w-32 h-32 self-center">
+                          <img src={item.icon} alt="Icon img" />
+                        </div>
+                      )}
                     </div>
                   </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
-            {screenWidth > 768 && <CarouselPrevious />}
-            {screenWidth > 768 && <CarouselNext />}
+            {screenWidth > 768 && <CarouselPrevious className="hover:cursor-pointer" />}
+            {screenWidth > 768 && <CarouselNext className="hover:cursor-pointer" />}
           </Carousel>
         </motion.div>
       </div>

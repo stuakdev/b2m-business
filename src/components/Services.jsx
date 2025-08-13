@@ -5,7 +5,7 @@ import discussionImg from "../assets/discussion.png";
 export default function Services() {
   return (
     <section id="whyb2m" className="bg-[#FFDEAA] py-16 scroll-mt-10">
-      <div className="max-w-[96rem] mx-auto w-full px-6 py-16 overflow-hidden">
+      <div className="max-w-[96rem] mx-auto w-full px-6 overflow-hidden">
         <motion.div
           initial={{
             opacity: 0,

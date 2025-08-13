@@ -83,7 +83,7 @@ export default function Testimonial() {
   }, [yTranslationRev, height]);
 
   return (
-    <section id="whatclientsays" className="bg-[#FAFAF4] pb-16 md:py-16 overflow-hidden scroll-mt-10">
+    <section id="whatclientsays" className="bg-[#FAFAF4] overflow-hidden scroll-mt-10">
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-10">
         <div className="w-full text-center max-w-[800px] justify-self-center xl:justify-self-end xl:self-center p-8 xl:p-24">
           <motion.div
@@ -123,7 +123,7 @@ export default function Testimonial() {
             viewport={{
               once: true,
             }}
-            className="bg-white border-3 border-[#02033B] rounded-2xl px-12 py-8 shadow-md"
+            className="bg-white border-3 border-[#02033B] rounded-2xl px-6 md:px-12 py-8 shadow-md"
           >
             <Carousel plugins={[plugin.current]} className="w-full">
               <CarouselContent>
@@ -147,12 +147,12 @@ export default function Testimonial() {
           </motion.div>
         </div>
 
-        <div className="bg-[#FFDEA8] w-full h-[80vh] overflow-hidden flex justify-center gap-16">
-          <motion.div className="h-full flex flex-col items-center gap-16" ref={ref} style={{ y: yTranslation }}>
+        <div className="bg-[#FFDEA8] w-full h-[85vh] overflow-hidden flex justify-center gap-8 md:gap-16">
+          <motion.div className="h-full flex flex-col items-center gap-8 md:gap-16" ref={ref} style={{ y: yTranslation }}>
             {logos.map((logo, index) => (
               <div
                 key={index}
-                className="flex justify-center items-center w-40 sm:w-52 md:w-64 rounded-2xl min-h-40 sm:min-h-52 md:min-h-64 bg-white shadow-md"
+                className="flex justify-center items-center w-32 sm:w-52 md:w-64 rounded-2xl min-h-32 sm:min-h-52 md:min-h-64 bg-white shadow-md"
               >
                 <div className="w-3/5 overflow-hidden">
                   <img src={logo.src} alt="Client Logos" className="w-full h-auto text-center" />
@@ -160,11 +160,11 @@ export default function Testimonial() {
               </div>
             ))}
           </motion.div>
-          <motion.div className="h-full flex flex-col items-center gap-16" style={{ y: yTranslationRev }}>
+          <motion.div className="h-full flex flex-col items-center gap-8 md:gap-16" style={{ y: yTranslationRev }}>
             {logosRev.map((logo, index) => (
               <div
                 key={index}
-                className="flex justify-center items-center w-40 sm:w-52 md:w-64 rounded-2xl min-h-40 sm:min-h-52 md:min-h-64 bg-white shadow-md"
+                className="flex justify-center items-center w-32 sm:w-52 md:w-64 rounded-2xl min-h-32 sm:min-h-52 md:min-h-64 bg-white shadow-md"
               >
                 <div className="w-3/5 overflow-hidden">
                   <img src={logo.src} alt="Client Logos" className="w-full h-auto text-center" />
