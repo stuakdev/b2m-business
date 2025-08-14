@@ -45,7 +45,7 @@ const FinanceSection = () => {
           viewport={{
             once: true,
           }}
-          href="mailto://rathika@b2mbs.com"
+          href="mailto:rathika@b2mbs.com"
           className="bg-[#FFB540] text-[#02033B] font-semibold px-6 py-3 rounded-full shadow hover:cursor-pointer transition-transform ease-linear hover:scale-105 inline-flex items-center gap-2">
           Talk to an Expert
           <span className="text-xl">→</span>

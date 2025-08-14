@@ -20,7 +20,7 @@ export default function Header() {
       <div className="flex items-center justify-between max-w-[96rem] mx-auto">
         <a className="flex items-center space-x-3 hover:cursor-pointer" href="#">
           <img src={brandLogo.src} alt="Logo" className="w-10 h-10 rounded-full" />
-          <span className="font-varta text-black text-lg font-bold">B2M Business Solution</span>
+          <span className="font-varta text-black text-lg font-bold">B2M Business Solutions</span>
         </a>
 
         <div className="hidden md:flex items-center space-x-8">
@@ -69,7 +69,7 @@ export default function Header() {
                   <div className="flex justify-between items-center">
                     <a className="flex items-center space-x-3" href="#" onClick={() => setIsOpen(false)}>
                       <img src={brandLogo.src} alt="Logo" className="w-10 h-10 rounded-full" />
-                      <span className="font-medium text-black text-lg">B2M Business Solution</span>
+                      <span className="font-medium text-black text-xs">B2M Business Solutions</span>
                     </a>
                     <X onClick={() => setIsOpen(false)} size={28} />
                   </div>

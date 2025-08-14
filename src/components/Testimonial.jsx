@@ -52,7 +52,7 @@ export default function Testimonial() {
 
   useEffect(() => {
     let controls;
-    let finalPosition = -height / 2 - 8;
+    let finalPosition = -height / 2 + 16;
 
     controls = animate(yTranslation, [0, finalPosition * 2], {
       ease: "linear",
@@ -69,7 +69,7 @@ export default function Testimonial() {
 
   useEffect(() => {
     let controls;
-    let finalPosition = -height / 2 - 8;
+    let finalPosition = -height / 2 + 16;
 
     controls = animate(yTranslationRev, [finalPosition * 2, 0], {
       ease: "linear",
@@ -147,7 +147,7 @@ export default function Testimonial() {
           </motion.div>
         </div>
 
-        <div className="bg-[#FFDEA8] w-full h-[85vh] overflow-hidden flex justify-center gap-8 md:gap-16">
+        <div className="bg-[#FFDEA8] w-full h-[70vh] md:h-[85vh] overflow-hidden flex justify-center gap-8 md:gap-16">
           <motion.div className="h-full flex flex-col items-center gap-8 md:gap-16" ref={ref} style={{ y: yTranslation }}>
             {logos.map((logo, index) => (
               <div
