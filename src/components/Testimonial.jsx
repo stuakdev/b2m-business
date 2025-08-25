@@ -19,6 +19,7 @@ import logo14 from "./../assets/logoipsum-355.png";
 import logo15 from "./../assets/logoipsum-359.png";
 import logo16 from "./../assets/logoipsum-365.png";
 import { Carousel, CarouselContent, CarouselItem } from "./ui/carousel";
+import { testimonials } from "@/utils/Testimonial";
 
 export default function Testimonial() {
   let [ref, { height }] = useMeasure();
@@ -28,27 +29,6 @@ export default function Testimonial() {
 
   const logos = [logo1, logo2, logo3, logo4, logo5, logo6, logo7, logo8];
   const logosRev = [logo9, logo10, logo11, logo12, logo13, logo14, logo15, logo16];
-  const testimonials = [
-    {
-      name: "Aarav Sharma",
-      designation: "Product Manager at TechNova",
-      message: "This service exceeded my expectations. The team was professional, and the results were outstanding.",
-      image: "https://randomuser.me/api/portraits/women/43.jpg",
-    },
-    {
-      name: "Priya Mehta",
-      designation: "UI/UX Designer at Creative Minds",
-      message: "I was amazed by the attention to detail and the creativity put into the project. Highly recommended!",
-      image: "https://randomuser.me/api/portraits/women/40.jpg",
-    },
-    {
-      name: "Rahul Verma",
-      designation: "Software Engineer at CodeCraft",
-      message:
-        "Working with them was a breeze. The process was smooth, and the final output was better than I imagined.",
-      image: "https://randomuser.me/api/portraits/women/47.jpg",
-    },
-  ];
 
   useEffect(() => {
     let controls;

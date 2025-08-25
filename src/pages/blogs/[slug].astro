@@ -1,0 +1,54 @@
+---
+import BlogSpecificPage from "@/components/BlogSpecificPage";
+import { db } from "@/db/firebase";
+import { collection, doc, getDoc, getDocs } from "firebase/firestore";
+import "./../../styles/global.css";
+
+export async function getStaticPaths() {
+  const snapshot = await getDocs(collection(db, "blogs"));
+  const paths = snapshot.docs.map((post) => {
+    return {
+      params: { slug: post.id },
+      props: { data: post, slugs: snapshot.docs },
+    };
+  });
+
+  return paths;
+}
+
+const { slug } = Astro.params;
+
+const docRef = doc(db, "blogs", slug);
+const docSnap = await getDoc(docRef);
+
+if (!docSnap.exists()) {
+  Astro.redirect("/404");
+}
+
+const blog = { id: docSnap.id, ...docSnap.data() };
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Blogs</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <BlogSpecificPage client:visible post={blog} />
+    </main>
+  </body>
+</html>

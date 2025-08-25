@@ -4,17 +4,11 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import brandLogo from "./../assets/logo.png";
+import { navLinks } from "@/utils/Menu";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-
-  const navLinks = [
-    { label: "Who We Are", href: "#whoweare" },
-    { label: "What We Do", href: "#whatwedo" },
-    { label: "Why B2M", href: "#whyb2m" },
-    { label: "What Clients Say", href: "#whatclientsays" },
-  ];
-
+  
   return (
     <nav className="bg-[#F3F8FF] px-6 py-4 shadow-sm sticky top-0 z-999">
       <div className="flex items-center justify-between max-w-[96rem] mx-auto">

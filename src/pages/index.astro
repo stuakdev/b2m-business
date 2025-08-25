@@ -9,6 +9,7 @@ import Services from "../components/Services";
 import FinanceSection from "../components/FinanceSection";
 import HowWeWork from "../components/HowWeWork";
 import Testimonial from "../components/Testimonial";
+import Blogs from "../components/Blogs";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
@@ -21,6 +22,7 @@ import Footer from "../components/Footer";
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <title>B2M Business Solutions</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <style>
       * {
@@ -43,6 +45,7 @@ import Footer from "../components/Footer";
       <FinanceSection client:visible />
       <HowWeWork client:visible />
       <Testimonial client:visible />
+      <Blogs client:visible />
       <Contact client:visible />
       <Footer client:visible />
     </main>
