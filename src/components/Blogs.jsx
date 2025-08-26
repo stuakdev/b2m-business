@@ -103,14 +103,16 @@ export default function BlogGrid() {
               </div>
             )}
           </div>
-          <div className="flex justify-center mt-10">
-            <a
-              href="/blogs"
-              className="rounded-2xl border border-gray-300 bg-white px-24 py-3 text-sm md:text-base hover:shadow-md"
-            >
-              Load more
-            </a>
-          </div>
+          {posts.length > 0 && isOverflowing && (
+            <div className="flex justify-center mt-10">
+              <a
+                href="/blogs"
+                className="rounded-2xl border border-gray-300 bg-white px-24 py-3 text-sm md:text-base hover:shadow-md"
+              >
+                Load more
+              </a>
+            </div>
+          )}
         </main>
       </div>
     </section>

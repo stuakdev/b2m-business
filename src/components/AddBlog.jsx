@@ -1,4 +1,6 @@
+import { auth } from "@/db/firebase";
 import { getApp, getApps, initializeApp } from "firebase/app";
+import { signOut } from "firebase/auth";
 import { addDoc, collection, deleteDoc, doc, getDocs, getFirestore, updateDoc } from "firebase/firestore";
 import { ArrowLeft } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -85,7 +87,12 @@ const AddBlog = () => {
           <a href="/#blogs" className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900">
             <ArrowLeft className="h-4 w-4" /> Back to main page
           </a>
-          <div className="text-sm text-gray-500">Add Blogs</div>
+          <div className="flex text-sm text-gray-500">
+            <p>Add Blogs</p>
+            <a onClick={async () => await signOut(auth)} className="ml-6 hover:cursor-pointer">
+              Sign Out
+            </a>
+          </div>
         </div>
       </header>
       <div className="max-w-6xl mx-auto py-10 px-4">

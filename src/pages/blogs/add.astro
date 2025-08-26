@@ -1,4 +1,6 @@
 ---
+import LoginPage from "@/components/Login";
+import AdminGuard from "@/components/AdminGuard";
 import "../../styles/global.css";
 import AddBlog from "@/components/AddBlog";
 ---
@@ -23,7 +25,9 @@ import AddBlog from "@/components/AddBlog";
   </head>
   <body>
     <main>
-      <AddBlog client:visible />
+      <AdminGuard client:only="react">
+        <AddBlog client:visible />
+      </AdminGuard>
     </main>
   </body>
 </html>
