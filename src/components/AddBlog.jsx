@@ -154,16 +154,16 @@ const AddBlog = () => {
                   <h3 className="font-semibold">{b.title}</h3>
                   <p className="text-sm text-gray-600">{b.date}</p>
                 </div>
-                <div className="space-x-2">
+                <div className="space-x-2 md:flex">
                   <button
                     onClick={() => handleEdit(b)}
-                    className="px-3 py-1 bg-blue-500 text-white rounded hover:cursor-pointer hover:bg-blue-600"
+                    className="w-full px-3 py-1 bg-blue-500 text-white rounded hover:cursor-pointer mb-1 md:mb-0 hover:bg-blue-600"
                   >
                     Edit
                   </button>
                   <button
                     onClick={() => handleDelete(b.id)}
-                    className="px-3 py-1 bg-red-500 text-white rounded hover:cursor-pointer hover:bg-red-600"
+                    className="w-full px-3 py-1 bg-red-500 text-white rounded hover:cursor-pointer hover:bg-red-600"
                   >
                     Delete
                   </button>
