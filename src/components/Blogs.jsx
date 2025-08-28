@@ -40,12 +40,13 @@ function useOverflow(ref, deps = []) {
 }
 
 export function BlogCard({ post }) {
+  console.log(post.image);
   return (
     <article className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition overflow-hidden border border-gray-100 flex flex-col">
       <img src={post.image} alt={post.title} className="w-full h-48 md:h-52 object-cover" loading="lazy" />
       <div className="p-5 flex flex-col gap-3 grow">
         <h2 className="text-lg md:text-xl font-semibold leading-snug text-[#02033B]">{post.title}</h2>
-        <p className="text-gray-600 text-sm md:text-base">{post.description}</p>
+        <p className="text-gray-600 text-sm md:text-base line-clamp-3">{post.description}</p>
         <div className="mt-auto flex items-center justify-end text-sm text-gray-500 pt-2">
           <time>{post.date}</time>
         </div>

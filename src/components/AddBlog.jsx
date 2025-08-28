@@ -129,6 +129,7 @@ const AddBlog = () => {
             className="w-full border rounded-lg p-3"
             required
           />
+          <p className="text-gray-400 text-sm"><span className="text-red-600">*</span> The Uploading Image resolution should be minimum 1080 x 720 px.</p>
           <button type="submit" className="bg-black text-white px-6 py-2 rounded-lg hover:cursor-pointer">
             {editingId ? "Update Blog" : "Add Blog"}
           </button>

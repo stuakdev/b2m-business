@@ -38,13 +38,10 @@ const BlogSpecificPage = ({ post }) => {
         <div className="mt-6 overflow-hidden rounded-3xl shadow-sm">
           <img src={post.image} alt={post.title} className="w-full h-[46vh] md:h-[60vh] object-cover" />
         </div>
+        <div className="max-w-5xl mx-auto py-8">
+          <p className="leading-relaxed text-gray-700 text-justify whitespace-pre-wrap">{post.description}</p>
+        </div>
       </section>
-
-      <main className="max-w-6xl mx-auto px-4 py-10 grid gap-10 lg:grid-cols-[1fr_340px]">
-        <article className="space-y-6">
-          <p className="leading-relaxed text-gray-700">{post.description}</p>
-        </article>
-      </main>
     </div>
   );
 };
