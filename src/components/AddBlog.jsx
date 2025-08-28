@@ -88,8 +88,8 @@ const AddBlog = () => {
             <ArrowLeft className="h-4 w-4" /> Back to main page
           </a>
           <div className="flex text-sm text-gray-500">
-            <p>Add Blogs</p>
-            <a onClick={async () => await signOut(auth)} className="ml-6 hover:cursor-pointer">
+            <p className="hover:cursor-default">Add Blogs</p>
+            <a onClick={async () => await signOut(auth)} className="ml-6 text-black hover:cursor-pointer hover:opacity-95">
               Sign Out
             </a>
           </div>

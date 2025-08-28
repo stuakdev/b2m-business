@@ -5,7 +5,7 @@ const BlogSpecificPage = ({ post }) => {
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900">
       <header className="sticky top-0 z-30 bg-white/80 backdrop-blur border-b">
-        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
           <a
             onClick={() => window.history.back()}
             className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 hover:cursor-pointer"
@@ -16,7 +16,7 @@ const BlogSpecificPage = ({ post }) => {
         </div>
       </header>
 
-      <section className="max-w-6xl mx-auto px-4 pt-8">
+      <section className="max-w-7xl mx-auto px-4 pt-8">
         <motion.h1
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
