@@ -48,7 +48,7 @@ const blog = { id: docSnap.id, ...docSnap.data() };
   </head>
   <body>
     <main>
-      <BlogSpecificPage client:visible post={blog} />
+      <BlogSpecificPage client:load post={blog} />
     </main>
   </body>
 </html>
