@@ -1,7 +1,6 @@
-import { useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/db/firebase";
-import { ArrowLeft } from "lucide-react";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { useState } from "react";
 
 const LoginPage = ({ onLoginSuccess }) => {
   const [email, setEmail] = useState("");
