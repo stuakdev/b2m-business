@@ -74,7 +74,7 @@ export default function Contact() {
                     <MapPin size={26} />
                   </span>
                   <span>
-                    16 Howleys Road Notting Hill
+                    22 Vista Avenue, Ringwood East
                     <br />
                     Vic 3135, Australia
                   </span>
